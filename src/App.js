@@ -3,7 +3,10 @@ import TodoList from "./TodoList";
 
 function App() {
   // useStateでtodosという変数を定義し、初期値を["Todo1", "Todo2"]とする
-  const [todos, setTodos] = useState(["Todo1", "Todo2"]);
+  const [todos] = useState([
+    {id: 1, name: "Todo1", completed: false},
+    {id: 2, name: "Todo2", completed: true},
+  ]);
 
   return (
     <>
