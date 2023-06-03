@@ -1,11 +1,10 @@
 import React from 'react'
+import Todo from './Todo'
 
 // 関数コンポーネント
 const TodoList = ({ todos }) => {
-  return (
-    // {}はJSX記法で、JSの変数を埋め込むためのもの
-    <div>{todos}</div>
-  )
+  // todosをmapで回してTodoコンポーネントにtodoとして渡す
+  return todos.map((todo) => <Todo todo={todo} key={todo} />)
 }
 
 export default TodoList
