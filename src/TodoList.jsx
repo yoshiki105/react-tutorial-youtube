@@ -1,9 +1,10 @@
 import React from 'react'
 
 // 関数コンポーネント
-const TodoList = () => {
+const TodoList = ({ todos }) => {
   return (
-    <div>TodoList</div>
+    // {}はJSX記法で、JSの変数を埋め込むためのもの
+    <div>{todos}</div>
   )
 }
 
