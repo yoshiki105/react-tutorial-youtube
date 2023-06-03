@@ -15,7 +15,7 @@ function App() {
   const handleAddTodo = () => {
     // useRefでinputの文字列を取得する
     const name = todoNameRef.current.value;
-
+    if (name === "") return;
     // todosの中身を更新する時に、setTodosを使う
     setTodos((prevTodos) => {
       return [...prevTodos, {id: uuidv4(), name: name, completed: false}]
