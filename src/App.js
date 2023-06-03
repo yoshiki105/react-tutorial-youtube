@@ -1,18 +1,34 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import TodoList from "./TodoList";
+import { v4 as uuidv4 } from 'uuid';
 
 function App() {
   // useStateでtodosという変数を定義し、初期値を["Todo1", "Todo2"]とする
-  const [todos] = useState([
+  const [todos, setTodos] = useState([
     {id: 1, name: "Todo1", completed: false},
     {id: 2, name: "Todo2", completed: true},
   ]);
 
+  const todoNameRef = useRef();
+
+  // todosの末尾に新しいTodoを追加する
+  const handleAddTodo = () => {
+    // useRefでinputの文字列を取得する
+    const name = todoNameRef.current.value;
+
+    // todosの中身を更新する時に、setTodosを使う
+    setTodos((prevTodos) => {
+      return [...prevTodos, {id: uuidv4(), name: name, completed: false}]
+    });
+    todoNameRef.current.value = null;
+  };
+
+
   return (
     <>
       <TodoList todos={todos} />
-      <input type="text" />
-      <button>タスクを追加</button>
+      <input type="text" ref={todoNameRef} />
+      <button onClick={handleAddTodo}>タスクを追加</button>
       <button>完了したタスクの削除</button>
       <div>残りのタスク:0</div>
     </>
