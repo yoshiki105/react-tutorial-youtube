@@ -21,6 +21,8 @@ function App() {
       return [...prevTodos, {id: uuidv4(), name: name, completed: false}]
     });
     todoNameRef.current.value = null;
+
+    // TODO: ローカルストレージに保存する
   };
 
   const toggleTodo = (id) => {
@@ -30,11 +32,15 @@ function App() {
     const todo = newTodos.find((todo) => todo.id === id);
     todo.completed = !todo.completed;
     setTodos(newTodos);
+
+    // TODO: ローカルストレージに保存する
   }
 
   const handleDeleteTodo = () => {
     const newTodos = todos.filter((todo) => !todo.completed);
     setTodos(newTodos);
+
+    // TODO: ローカルストレージに保存する
   };
 
   return (

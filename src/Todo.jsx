@@ -11,6 +11,7 @@ const Todo = ({ todo, toggleTodo }) => {
         <input type="checkbox" checked={todo.completed} readOnly onChange={handleTodoClickClick} />
       </label>
       {todo.name}
+      {/* TODO: 個別の削除ボタンを設置 */}
     </div>
   )
 }
